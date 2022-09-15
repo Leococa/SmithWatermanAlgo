@@ -1,12 +1,12 @@
 public class Main {
     public static void main(String[] args) {
 
-
         int x=2;
         int y=6;
 
 
         ReadFile file = new ReadFile();
+        file.printSequences();
         file.getSequences(x,y);
 
         System.out.println("The sequences "+x+" and "+y+" are :");

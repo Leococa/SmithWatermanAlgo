@@ -10,6 +10,26 @@ public class ReadFile {
 
     }
 
+    public void printSequences(){
+        int cpt=1;
+        try {
+            File file = new File("DNA_data.txt");
+            Scanner myReader = new Scanner(file);
+            System.out.println("The sequences in this file :");
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                if (data != "" && data.indexOf(">") == 0) {
+                    System.out.println(cpt+" "+myReader.nextLine());
+                    cpt++;
+                }
+            }
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
+
     public void getSequences(int line1, int line2) {
         int cpt=1;
         try {
