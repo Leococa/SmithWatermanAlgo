@@ -11,7 +11,7 @@ public class Main {
         System.out.print("\n");
 
         do {
-            System.out.println("Hello user. Please select two sequences between 1 and 10.");
+            System.out.println("Hello user, please select two sequences between 1 and 10 :");
 
             x = selectGene.nextInt();
             y = selectGene.nextInt();
@@ -28,6 +28,8 @@ public class Main {
         System.out.println("\n");
 
         Matrix mat = new Matrix();
-        mat.initMat(str1,str2,10);
+        mat.initMat(str1,str2,11);
+        System.out.println("");
+        mat.printMat();
     }
 }
