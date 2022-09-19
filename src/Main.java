@@ -1,3 +1,6 @@
+//Project Smith-Waterman Algorithm by Hugo Trinh and Léo Cocatrix Group C Concordia
+//Teacher Mohammed Shehab 2022
+
 import java.awt.desktop.AboutEvent;
 import java.util.Scanner;
 
