@@ -34,5 +34,7 @@ public class Main {
         Matrix mat = new Matrix();
         mat.initMat(str1,str2,11);
 
+
+
     }
 }
