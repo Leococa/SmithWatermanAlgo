@@ -9,8 +9,6 @@ public class Main {
         int x, y;
         int boucle;
 
-
-
         do {
         //Show to the user the different sequences that he can choose
         ReadFile file = new ReadFile();
