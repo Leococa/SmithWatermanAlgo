@@ -1,7 +1,9 @@
 import java.lang.String;
 import java.lang.*;
+import java.util.Scanner;
 
 public class Matrix {
+    Scanner userResponse = new Scanner(System.in);
     int gap=-2;
     int score;
     int[][] mat;
@@ -14,22 +16,29 @@ public class Matrix {
     }
 
     public void initMat(String seqA, String seqB, int size) {
-
+        int printCompa;
         this.mat= new int[size][size];
         this.size = size;
         this.sequence1=seqA;
         this.sequence2=seqB;
-        int cpt1=0,cpt2;
+
+        //Ask the user if he want to see the comparison matrix
+        do {
+            System.out.println("Do you want to see the comparison matrix ? :\nYes(1) No(0)");
+            printCompa = userResponse.nextInt();
+        } while (printCompa>1 || printCompa<0);
 
         //Print the matrix
         //Initialize the matrix
         //Print the first sequence in row
         System.out.print("   ");
+
         for (int k = 0; k < size-1; k++) {
             System.out.print(" " + seqA.charAt(k));
         }
         System.out.print("\n");
         System.out.print("  0");
+
         for (int i = 0; i < size-1; i++) {
             System.out.print(" 0");
         }
@@ -38,35 +47,41 @@ public class Matrix {
         //Print the second sequence in column
         for (int i = 0; i < size-1; i++) {
             System.out.print(seqB.charAt(i)+" " + "0 ");
-            cpt2=0;
 
             //Compare the sequences
             for (int j = 0; j < size-1; j++) {
-                if (seqA.charAt(j) != seqB.charAt(i)){
-                    //System.out.print("0 ");
-                    score=0;
+                if (seqA.charAt(j) != seqB.charAt(i)) {
+                    if (printCompa == 1){
+                        System.out.print("0 ");
+                    }
+                    score = 0;
                 }
-                else{
-                    //System.out.print("1 ");
-                    score=1;
+                else {
+                    if (printCompa == 1){
+                        System.out.print("1 ");
+                    }
+                    score = 1;
                 }
-                cpt2++;
 
                 //Fill the matrix with the score
-                mat[i+1][j+1]=Math.max(Math.max(Math.max(mat[i][j]+score ,0),Math.max(mat[i+1][j]+gap,gap)), Math.max(mat[i][j+1]+gap,gap));
-                System.out.print(mat[i+1][j+1]+" ");
-            }
-            cpt1++;
+                mat[i + 1][j + 1] = Math.max(Math.max(Math.max(mat[i][j] + score, 0), Math.max(mat[i + 1][j] + gap, gap)), Math.max(mat[i][j + 1] + gap, gap));
 
+                if (printCompa == 0) {
+                    System.out.print(mat[i + 1][j + 1] + " ");
+                }
+            }
             System.out.println(" ");
 
         }
-        //System.out.println("\n ");
-        //printMat();
 
+        System.out.println("\n ");
+
+        if (printCompa == 1) {
+            printMat();
+        }
     }
 
-    /*public void printMat(){
+    public void printMat(){
         int compt=0;
         System.out.print("   ");
         for (int k = 0; k < size-1; k++) {
@@ -84,8 +99,5 @@ public class Matrix {
                 compt++;
             }
         }
-    }*/
-
-
-
+    }
 }
